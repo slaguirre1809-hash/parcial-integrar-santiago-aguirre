@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!-- Error: falta atributo lang -->
 <html lang="es">
 
 <head>
-  <!-- Error: falta meta viewport (sitio no es responsive) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zara Darkbane — Chronicles of Code</title>
   <link rel="stylesheet" href="style.css">
@@ -45,8 +43,9 @@
           <dt>Origen</dt>
           <dd>Torre de los Arcanos</dd>
         </dl>
+      </div>
 
-        <section class="stats-section" id="stats">
+      <section class="stats-section" id="stats">
           <h2 class="section-title">Stats de Combate</h2>
 
           <div class="stats-grid">
@@ -57,37 +56,32 @@
               <p class="stat-label">Vida</p>
             </article>
 
-            <!-- Error: div en lugar de article -->
-            <div class="stat-card">
-              <!-- Error: img de icono sin alt -->
-              <img src="https://picsum.photos/seed/heart/40/40" style="width: 40px; border-radius: 50%;">
+            <article class="stat-card">
+              <img src="https://picsum.photos/seed/heart/40/40" alt="Retrato de corazón" style="width: 40px; border-radius: 50%;">
               <div class="stat-value">80</div>
               <div class="stat-label">Vida</div>
-            </div>
+            </article>
 
-            <div class="stat-card">
-              <!-- Error: img de icono sin alt -->
-              <img src="https://picsum.photos/seed/mana/40/40" style="width: 40px; border-radius: 50%;">
+            <article class="stat-card">
+              <img src="https://picsum.photos/seed/mana/40/40" alt="Retrato de mana" style="width: 40px; border-radius: 50%;">
               <div class="stat-value">120</div>
               <div class="stat-label">Mana</div>
-            </div>
+            </article>
 
-            <div class="stat-card">
-              <!-- Error: img de icono sin alt -->
-              <img src="https://picsum.photos/seed/sword/40/40" style="width: 40px; border-radius: 50%;">
+            <article class="stat-card">
+              <img src="https://picsum.photos/seed/sword/40/40" alt="Retrato de espada" style="width: 40px; border-radius: 50%;">
               <div class="stat-value">45</div>
               <div class="stat-label">Ataque</div>
-            </div>
+            </article>
 
-            <div class="stat-card">
-              <!-- Error: img de icono sin alt -->
-              <img src="https://picsum.photos/seed/shield/40/40" style="width: 40px; border-radius: 50%;">
+            <article class="stat-card">
+              <img src="https://picsum.photos/seed/shield/40/40" alt="Retrato de escudo" style="width: 40px; border-radius: 50%;">
               <div class="stat-value">30</div>
               <div class="stat-label">Defensa</div>
-            </div>
+            </article>
 
           </div>
-      </div>
+      </section>
 
       <section class="skills-section" id="habilidades">
         <h2 class="section-title">Habilidades</h2>
@@ -106,55 +100,41 @@
             <span class="tag">Área</span>
           </div>
         </article>
-        <div class="skill-desc">
-          Lanza una esfera de fuego puro que explota al impacto, causando daño en área.
-        </div>
-        <div class="skill-cost">Costo: 30 de mana</div>
-        <div class="tags">
-          <span class="tag">Fuego</span>
-          <span class="tag">Área</span>
-          <span class="tag">Ofensivo</span>
-        </div>
-        </div>
 
-        <div class="skill-card">
-          <div class="skill-name" style="font-size: 1.1rem; font-weight: bold; color: #e94560;">Escudo de Hielo</div>
-          <div class="skill-desc">
+        <article class="skill-card">
+          <h3 class="skill-name">Escudo de Hielo</h3>
+          <p class="skill-desc">
             Crea una barrera de cristal helado que absorbe el siguiente golpe recibido.
-          </div>
-          <div class="skill-cost">Costo: 20 de mana</div>
+          </p>
+          <p class="skill-cost">Costo: 20 de mana</p>
           <div class="tags">
             <span class="tag">Hielo</span>
             <span class="tag">Defensivo</span>
           </div>
-        </div>
+        </article>
 
-        <div class="skill-card">
-          <div class="skill-name" style="font-size: 1.1rem; font-weight: bold; color: #e94560;">Rayo Carmesí</div>
-          <div class="skill-desc">
+        <article class="skill-card">
+          <h3 class="skill-name">Rayo Carmesí</h3>
+          <p class="skill-desc">
             Canaliza energía arcana oscura y dispara un rayo que atraviesa cualquier escudo.
             Aturde al objetivo durante 2 turnos.
-          </div>
-          <div class="skill-cost">Costo: 50 de mana</div>
+          </p>
+          <p class="skill-cost">Costo: 50 de mana</p>
           <div class="tags">
             <span class="tag">Oscuro</span>
             <span class="tag">Aturdir</span>
             <span class="tag">Penetrante</span>
           </div>
-        </div>
+        </article>
 
-        </div>
+        </section>
 
-        <!-- Error: div en lugar de section -->
-        <div class="challenge-section" id="desafio">
-          <!-- Error: div en lugar de h2 -->
-          <div class="section-title">¿Te animás a desafiarla?</div>
-          <!-- Error: div en lugar de p -->
-          <div class="challenge-intro" style="margin-bottom: 24px; max-width: 600px;">
+        <section class="challenge-section" id="desafio">
+          <h2 class="section-title">¿Te animás a desafiarla?</h2>
+          <p class="challenge-intro" style="margin-bottom: 24px; max-width: 600px;">
             Registrá tu personaje para enfrentarte a Zara Darkbane en el próximo torneo.
             Solo los más valientes (o los más locos) se atreven.
-          </div>
-          <!-- Error: formulario sin labels, solo con placeholder -->
+          </p>
           <form id="challenge-form">
             <label for="challenger-name">Nombre de tu personaje</label>
             <input type="text" id="challenger-name">
@@ -170,9 +150,7 @@
             </select>
             <button type="submit">Inscribirme al torneo</button>
           </form>
-        </div>
-
-        </div><!-- /main -->
+        </section>
 
         <footer class="footer">
           <p>© 2025 Chronicles of Code — Todos los derechos reservados</p>
@@ -181,7 +159,7 @@
 
         <!-- El alumno debe crear script.js y vincularlo aquí -->
         <script src="script.js"></script>
-    </main>
+  </main>
 </body>
 
 </html>
