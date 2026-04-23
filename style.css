@@ -131,6 +131,35 @@ button {
   cursor: pointer;
 }
 
+.battle-panel {
+  background: #16213e;
+  border: 1px solid #e94560;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.battle-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.battle-log {
+  background: #0f172a;
+  border: 1px solid #e94560;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 90px;
+  color: #d1d5db;
+  white-space: pre-wrap;
+}
+
+.battle-log p {
+  margin: 0;
+}
+
 footer {
   text-align: center;
   padding: 20px;

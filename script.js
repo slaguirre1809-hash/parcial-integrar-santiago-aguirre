@@ -31,6 +31,73 @@ function getPresentation(name, characterClass, level) {
   return `${name} — ${characterClass} (Nivel ${level})`;
 }
 
+// ============= SISTEMA DE COMBATE ALEATORIO =============
+let playerMana = mana;
+let enemyHealth = 90;
+const enemyDefense = 25;
+const enemyMaxHealth = enemyHealth;
+
+const rollDie = (sides) => Math.floor(Math.random() * sides) + 1;
+
+const logBattle = (message) => {
+  const battleLog = document.getElementById("battle-log");
+  if (!battleLog) return;
+
+  const line = document.createElement("p");
+  line.textContent = message;
+  battleLog.appendChild(line);
+  battleLog.scrollTop = battleLog.scrollHeight;
+};
+
+const disableBattleButtons = () => {
+  const attackButton = document.getElementById("attack-button");
+  const spellButton = document.getElementById("spell-button");
+  if (attackButton) attackButton.disabled = true;
+  if (spellButton) spellButton.disabled = true;
+};
+
+const attackEnemy = () => {
+  if (enemyHealth <= 0) {
+    logBattle("El enemigo ya está derrotado.");
+    return;
+  }
+
+  const roll = rollDie(20);
+  const damage = calculateDamage(attack + roll, enemyDefense);
+  enemyHealth = Math.max(enemyHealth - damage, 0);
+
+  logBattle(`Atacaste con espada y rodaste ${roll}. Hiciste ${damage} de daño.`);
+  logBattle(`Vida enemiga restante: ${enemyHealth}/${enemyMaxHealth}`);
+
+  if (enemyHealth <= 0) {
+    logBattle("¡Victoria! El enemigo ha sido derrotado.");
+    disableBattleButtons();
+  }
+};
+
+const castSpellAttack = () => {
+  const spellCost = 50;
+
+  if (!canCastSpell(playerMana, spellCost, false)) {
+    logBattle("No puedes lanzar el hechizo: mana insuficiente o estás aturdido.");
+    return;
+  }
+
+  playerMana -= spellCost;
+  const roll = rollDie(12);
+  const damage = calculateDamage(attack + roll + 10, enemyDefense);
+  enemyHealth = Math.max(enemyHealth - damage, 0);
+
+  logBattle(`Lanzaste Rayo Carmesí con un dado ${roll}. Hiciste ${damage} de daño.`);
+  logBattle(`Mana restante: ${playerMana}`);
+  logBattle(`Vida enemiga restante: ${enemyHealth}/${enemyMaxHealth}`);
+
+  if (enemyHealth <= 0) {
+    logBattle("¡El enemigo ha caído ante tu magia!");
+    disableBattleButtons();
+  }
+};
+
 // ============= LLAMADAS A FUNCIONES CON CONSOLE.LOG =============
 console.log("=== ZARA DARKBANE - FICHA DE COMBATE ===");
 console.log("Presentación:", getPresentation(name, characterClass, level));
@@ -70,3 +137,14 @@ form.addEventListener("submit", function(event) {
   // Mensaje visual
   alert("¡" + challengerName + " se ha inscrito al torneo! 🚀");
 });
+
+const attackButton = document.getElementById("attack-button");
+const spellButton = document.getElementById("spell-button");
+
+if (attackButton) {
+  attackButton.addEventListener("click", attackEnemy);
+}
+
+if (spellButton) {
+  spellButton.addEventListener("click", castSpellAttack);
+}
